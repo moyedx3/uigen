@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 import { Plus, LogOut, FolderOpen, ChevronDown } from "lucide-react";
 import { AuthDialog } from "@/components/auth/AuthDialog";
 import { signOut } from "@/actions";
@@ -96,12 +97,12 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
     return (
       <>
         <div className="flex gap-2">
-          <Button variant="outline" className="h-8" onClick={handleSignInClick}>
+          <MagneticButton variant="outline" size="sm" onClick={handleSignInClick}>
             Sign In
-          </Button>
-          <Button className="h-8" onClick={handleSignUpClick}>
+          </MagneticButton>
+          <MagneticButton variant="ripple" size="sm" onClick={handleSignUpClick}>
             Sign Up
-          </Button>
+          </MagneticButton>
         </div>
         <AuthDialog
           open={authDialogOpen}
@@ -155,12 +156,12 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
         </Popover>
       )}
 
-      <Button className="flex items-center gap-2 h-8" onClick={handleNewDesign}>
+      <MagneticButton variant="ripple" size="sm" className="gap-2" onClick={handleNewDesign}>
         <Plus className="h-4 w-4" />
         New Design
-      </Button>
+      </MagneticButton>
 
-      <Button
+      <MagneticButton
         variant="ghost"
         size="icon"
         className="h-8 w-8"
@@ -168,7 +169,7 @@ export function HeaderActions({ user, projectId }: HeaderActionsProps) {
         title="Sign out"
       >
         <LogOut className="h-4 w-4" />
-      </Button>
+      </MagneticButton>
     </div>
   );
 }
